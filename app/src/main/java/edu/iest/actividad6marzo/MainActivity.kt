@@ -1,12 +1,9 @@
 package edu.iest.actividad6marzo
 
-import android.content.Context
-import android.content.SharedPreferences
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
@@ -14,6 +11,8 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var tvBienvenido: TextView
@@ -50,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         inicializarVistas()
 
         Log.d("PREFERENCIAS", savedInstanceState?.getString(NOMBRE_KEY).toString())
+        Log.d("PREFERENCIAS", savedInstanceState?.getInt(EDAD_KEY).toString())
+        Log.d("PREFERENCIAS", savedInstanceState?.getFloat(ALTURA_KEY).toString())
+        Log.d("PREFERENCIAS", savedInstanceState?.getFloat(MONEDERO_KEY).toString())
         //nombre = savedInstanceState?.getString(NOMBRE_KEY).toString()
     }
 
@@ -59,6 +61,9 @@ class MainActivity : AppCompatActivity() {
         outState.putString(NOMBRE_KEY, nombre )
         outState?.run {
             putString(NOMBRE_KEY, nombre)
+            putInt(EDAD_KEY, edad)
+            putFloat(ALTURA_KEY, altura)
+            putFloat(MONEDERO_KEY, monedero)
         }
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState)
@@ -70,10 +75,18 @@ class MainActivity : AppCompatActivity() {
         if(TextUtils.isEmpty(nombre)){
             val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
             nombre = miSharedPreferences.getString(NOMBRE_KEY, "").toString()
+            edad = miSharedPreferences.getInt(EDAD_KEY, 0)
+            altura= miSharedPreferences.getFloat(ALTURA_KEY, 0F)
+            monedero = miSharedPreferences.getFloat(MONEDERO_KEY, 0F)
 
         }
 
-        tvBienvenido.text = nombre
+        tvBienvenido.text = "Bienvenido ${nombre}"
+        etNombre.setText(nombre)
+        etEdad.setText(edad.toString())
+        etAltura.setText(altura.toString())
+        etMonedero.setText(monedero.toString())
+
         super.onResume()
     }
 
@@ -108,18 +121,25 @@ class MainActivity : AppCompatActivity() {
         switchPreferencias = findViewById(R.id.switchPreferencias)
 
         bnGuardar.setOnClickListener {
-            nombre = etNombre.text.toString()
-            edad = Integer.valueOf(etEdad.text.toString())
-            altura = etAltura.text.toString().toFloat()
-            cambiarTextoBienvenida(nombre)
-            val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
-            val editor = miSharedPreferences.edit()
-            editor.putString(NOMBRE_KEY, nombre)
-            editor.putInt(EDAD_KEY, edad)
-            editor.putFloat(ALTURA_KEY, altura)
-            editor.putFloat(MONEDERO_KEY, monedero)
-            editor.apply()
+            if (switchPreferencias.isChecked()) {
+                nombre = etNombre.text.toString()
+                edad = Integer.valueOf(etEdad.text.toString())
+                altura = etAltura.text.toString().toFloat()
+                monedero = etMonedero.text.toString().toFloat()
+                cambiarTextoBienvenida(nombre)
+                val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
+                val editor = miSharedPreferences.edit()
+                editor.putString(NOMBRE_KEY, nombre)
+                editor.putInt(EDAD_KEY, edad)
+                editor.putFloat(ALTURA_KEY, altura)
+                editor.putFloat(MONEDERO_KEY, monedero)
+                editor.apply()
+            }
+            val i = Intent(this,activity_lista_juegos::class.java)
+            startActivity(i)
         }
+
+
 
     }
 }
