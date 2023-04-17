@@ -14,33 +14,34 @@
         android:layout_marginTop="16sp"
         android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabJuegos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:backgroundTint="@color/purple_500"
-            android:src="@drawable/settings"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#EEE" />
-
         <Button
             android:id="@+id/bnOrientacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="236dp"
-            android:text="HOR"
+            android:layout_marginEnd="448dp"
+            android:text="VERTICAL"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabJuegos"
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:backgroundTint="@color/purple_500"
+            android:src="@drawable/settings"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#EEE" />
 
         <Button
             android:id="@+id/bnDosColumnas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="128dp"
+            android:layout_marginEnd="256dp"
             android:text="2 COL"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="56dp"
             android:text="3 COL"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

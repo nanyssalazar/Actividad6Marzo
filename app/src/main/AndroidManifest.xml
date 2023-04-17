@@ -13,6 +13,11 @@
         android:theme="@style/Theme.Actividad6Marzo"
         tools:targetApi="31">
         <activity
+            android:name=".activity_shared_preferences"
+            android:exported="false"
+            android:label="@string/title_activity_shared_preferences"
+            android:theme="@style/Theme.Actividad6Marzo" />
+        <activity
             android:name=".shared_preferences"
             android:exported="false">
             <meta-data

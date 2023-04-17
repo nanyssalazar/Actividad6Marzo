@@ -22,6 +22,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, contexto : Context) 
                 val tvNombre : TextView
                 val tvPrecio : TextView
                 val tvConsola : TextView
+                val tvClasificacion : TextView
                 val ivFoto : ImageView
                 val bnComprar : Button
 
@@ -30,6 +31,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, contexto : Context) 
                     tvNombre = view.findViewById(R.id.tvNombre)
                     tvPrecio = view.findViewById(R.id.tvPrecio)
                     tvConsola = view.findViewById(R.id.tvConsola)
+                    tvClasificacion = view.findViewById(R.id.tvClasificacion)
                     ivFoto = view.findViewById(R.id.ivFoto)
                     bnComprar = view.findViewById(R.id.bnComprar)
                 }
@@ -38,7 +40,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, contexto : Context) 
     // lo que hace es mostrar el archivo que esta en inflate y lo muestra en algun lugar
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContenedorDeVista {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_main2, parent, false)
+            .inflate(R.layout.activity_game, parent, false)
 
         return ContenedorDeVista(view)
     }
@@ -51,6 +53,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, contexto : Context) 
         // se puede cambiar todo lo que queramos
         holder.tvNombre.text = videojuego.nombre
         holder.tvConsola.text = videojuego.consola
+        holder.tvClasificacion.text = videojuego.clasificacion
         holder.tvPrecio.text = videojuego.precio.toString()
         holder.ivFoto.setImageResource(videojuego.imagen)
 

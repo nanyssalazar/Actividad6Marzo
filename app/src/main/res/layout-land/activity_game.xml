@@ -8,12 +8,10 @@
 
     <ImageView
         android:id="@+id/ivFoto"
-        android:layout_width="0dp"
-        android:layout_height="116dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="128dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvConsola"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/stray" />
@@ -22,7 +20,7 @@
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="48dp"
         android:text="Nombre del Juego"
         android:textColor="@color/purple_500"
         android:textSize="20sp"
@@ -37,23 +35,32 @@
         android:text="Consola"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tvPrecio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivFoto"
-        app:layout_constraintTop_toTopOf="@+id/tvPrecio" />
+        app:layout_constraintStart_toStartOf="@+id/tvNombre"
+        app:layout_constraintTop_toTopOf="@+id/tvPrecio"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvClasificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Clasificación:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvConsola"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsola" />
 
     <TextView
         android:id="@+id/tvPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="40dp"
-
         android:text="130.00 MXN"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
-        app:layout_constraintStart_toEndOf="@+id/ivFoto"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toEndOf="@+id/tvConsola"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -61,13 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-
-
         android:text="Comprar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
-        app:layout_constraintStart_toEndOf="@+id/ivFoto"
+        app:layout_constraintEnd_toEndOf="@+id/tvPrecio"
         app:layout_constraintTop_toBottomOf="@+id/tvPrecio" />
 
 

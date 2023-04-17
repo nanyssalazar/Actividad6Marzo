@@ -1,13 +1,15 @@
 package edu.iest.actividad6marzo
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
-class shared_preferences : AppCompatActivity() {
+class activity_shared_preferences : AppCompatActivity() {
     private lateinit var tvNombre: TextView
     private lateinit var tvEdad: TextView
     private lateinit var tvAltura: TextView
@@ -27,7 +29,14 @@ class shared_preferences : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preferences)
 
+        val bnRegresar = findViewById<FloatingActionButton>(R.id.bnRegresar)
+
         getPreferences()
+
+       bnRegresar.setOnClickListener {
+            val i = Intent(this,activity_lista_juegos::class.java)
+            startActivity(i)
+        }
     }
 
     private fun getPreferences() {
@@ -55,6 +64,5 @@ class shared_preferences : AppCompatActivity() {
         }
 
     }
-
 
 }

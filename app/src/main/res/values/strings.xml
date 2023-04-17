@@ -6,4 +6,6 @@
     <string name="ingresa_tu_altura">Ingresa tu Altura</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="guardar">Guardar</string>
+    <string name="title_activity_shared_preferences">activity_shared_preferences</string>
+    <string name="comprar">Comprar</string>
 </resources>
