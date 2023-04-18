@@ -46,8 +46,6 @@ class activity_shared_preferences : AppCompatActivity() {
         tvMonedero = findViewById(R.id.tvMonedero)
 
 
-        Log.d("PRUEBA", "antes")
-
         if(TextUtils.isEmpty(nombreShared)) {
             Log.d("PRUEBA", "entro")
             val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
