@@ -41,6 +41,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, contexto : Context) 
                     bnComprar.setOnClickListener(this)
                 }
 
+                // al agregar la linea de arriba (clicklistener) el this nos permite implementar nuestro propio onClick (alt + intro), segunda opcion
                 override fun onClick(p0: View?) {
                     // aqui ocupamos pasar el contexto que definimos arriba
                     val miSharedPreferences = innerContext.getSharedPreferences("PERSISTENCIA", AppCompatActivity.MODE_PRIVATE)
